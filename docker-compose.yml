@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+    bua:
+        # image: denton35/butd-pytorch-docker
+        build: .
+        volumes: 
+            - type: bind
+              source: /home/denton/Documents/Python/bottom-up-attention.pytorch/
+              target: /workspace/bottom-up-attention.pytorch/
+            # - type: bind
+            #   source: /home/denton/Documents/Python/bottom-up-attention.pytorch/configs/bua-caffe/
+            #   target: /workspace/bottom-up-attention.pytorch/configs/bua-caffe/
+            # - type: bind
+            #   source: /home/denton/Documents/Python/bottom-up-attention.pytorch/checkpoints/
+            #   target: /workspace/bottom-up-attention.pytorch/checkpoints/
+            # - type: bind
+            #   source: /home/denton/Documents/Python/bottom-up-attention.pytorch/input/
+            #   target: /workspace/bottom-up-attention.pytorch/input/
+            # - type: bind
+            #   source: /home/denton/Documents/Python/bottom-up-attention.pytorch/output/
+            #   target: /workspace/bottom-up-attention.pytorch/output/
+        container_name: bua
+        restart: always
+        
+        # command: python setup.py build develop
+        command: nvidia-smi
+        # command: python3 extract_features.py --mode caffe --config-file configs/bua-caffe/extract-bua-caffe-r101.yaml --image-dir datasets/demo/ --out-dir output/ --resume
+        # command: ls configs/
