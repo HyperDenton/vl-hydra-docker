@@ -34,19 +34,6 @@ RUN conda clean -i
 RUN conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 RUN conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
 RUN conda config --set show_channel_urls yes
-
-RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/cudatoolkit-10.2.89-hfd86e86_1.tar.bz2 -o /tmp/cudatoolkit-10.2.89-hfd86e86_1.tar.bz2
-RUN conda install /tmp/cudatoolkit-10.2.89-hfd86e86_1.tar.bz2
-RUN rm /tmp/cudatoolkit-10.2.89-hfd86e86_1.tar.bz2
-
-RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/linux-64/pytorch-1.5.1-py3.6_cuda10.2.89_cudnn7.6.5_0.tar.bz2 -o /tmp/pytorch-1.5.1-py3.6_cuda10.2.89_cudnn7.6.5_0.tar.bz2 && \
-    conda install ./pytorch-1.5.1-py3.6_cuda10.2.89_cudnn7.6.5_0.tar.bz2 && \
-    rm ./pytorch-1.5.1-py3.6_cuda10.2.89_cudnn7.6.5_0.tar.bz2
-
-RUN wget --quiet https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/python-3.6.10-h7579374_2.tar.bz2 && \
-    conda install ./python-3.6.10-h7579374_2.tar.bz2 && \
-    rm ./python-3.6.10-h7579374_2.tar.bz2
-
 RUN conda install pytorch=1.5 torchvision cudatoolkit=10.2
 
 # install fvcore, see https://github.com/facebookresearch/detectron2/issues/458
